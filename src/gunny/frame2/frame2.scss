@@ -1,0 +1,348 @@
+@import "../index.scss";
+@import "./sprites";
+
+.gunny_frame2 {
+	@include grid-media($portrait) {
+		&,
+		.section__background,
+		.section__content,
+		.inner {
+			height: 734px;
+		}
+	}
+
+	@include grid-media($landscape) {
+		&,
+		.section__background,
+		.section__content,
+		.inner {
+			height: 1080px;
+		}
+	}
+
+	.title {
+		position: absolute;
+		left: 50%;
+		translate: -50% 0;
+
+		@include grid-media($portrait) {
+			width: 768px;
+			height: 129px;
+			background-size: 100% 100%;
+			top: -40px;
+		}
+	}
+
+	.character {
+		&-left {
+			position: absolute;
+			left: 11px;
+			bottom: 55px;
+			z-index: 0;
+		}
+
+		&-right {
+			position: absolute;
+			right: 0;
+			bottom: 50px;
+			z-index: 0;
+		}
+
+		&-left,
+		&-right {
+			@include grid-media($portrait) {
+				display: none;
+			}
+		}
+	}
+
+	.ranking-top-container {
+		width: 2000px;
+		display: flex;
+		gap: 124px;
+		justify-content: center;
+		align-items: flex-end;
+		position: absolute;
+		left: 50%;
+		top: 253px;
+		translate: -50% 0;
+		z-index: 1;
+
+		@include grid-media($portrait) {
+			width: 768px;
+			gap: 51px;
+			top: 77px;
+		}
+	}
+
+	.ranking-top {
+		background-image: url("./assets/images/ranking-frame.png");
+		background-size: 100% 100%;
+		position: relative;
+		// transform-origin: bottom center;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.text-container {
+			margin-top: 10px;
+
+			span {
+				font-weight: bold;
+			}
+
+			@include grid-media($portrait) {
+				font-size: 14px;
+			}
+		}
+
+		.ranking-title {
+			flex-shrink: 0;
+			@include image("sprite", $ranking-name-top);
+			font-size: 20px;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 12px;
+
+			@include grid-media($portrait) {
+			}
+		}
+
+		.crown {
+			position: absolute;
+			top: -60px;
+			left: -60px;
+			z-index: 5;
+
+			@include grid-media($portrait) {
+				scale: 0.7;
+				top: -58px;
+				left: -55px;
+			}
+		}
+
+		&.ranking-1st {
+			width: 321px;
+			height: 405px;
+			.crown {
+				@include image("sprite", $crown-1st);
+			}
+
+			.ranking-title {
+				margin-top: 24px;
+
+				@include grid-media($portrait) {
+					margin-top: 8px;
+					scale: 0.6;
+				}
+			}
+
+			@include grid-media($portrait) {
+				width: 213px;
+				height: 266px;
+			}
+
+			img {
+				margin-top: 20px;
+				width: 194px;
+				height: 194px;
+				border-radius: 100%;
+
+				@include grid-media($portrait) {
+					margin-top: 5px;
+					width: 132px;
+					height: 132px;
+				}
+			}
+		}
+
+		&.ranking-2nd {
+			width: 282px;
+			height: 345px;
+			position: relative;
+			bottom: -10px;
+
+			.ranking-title {
+				scale: 0.8;
+
+				@include grid-media($portrait) {
+					margin-top: 2px;
+					scale: 0.5;
+				}
+			}
+
+			.crown {
+				@include image("sprite", $crown-2nd);
+			}
+
+			@include grid-media($portrait) {
+				width: 181px;
+				height: 224px;
+			}
+
+			img {
+				margin-top: 12px;
+				width: 172px;
+				height: 172px;
+				border-radius: 100%;
+
+				@include grid-media($portrait) {
+					margin-top: 1px;
+					width: 110px;
+					height: 110px;
+				}
+			}
+		}
+
+		&.ranking-3rd {
+			width: 282px;
+			height: 345px;
+			position: relative;
+			bottom: -10px;
+			.crown {
+				@include image("sprite", $crown-3rd);
+			}
+
+			.ranking-title {
+				scale: 0.8;
+
+				@include grid-media($portrait) {
+					margin-top: 2px;
+					scale: 0.5;
+				}
+			}
+
+			@include grid-media($portrait) {
+				width: 181px;
+				height: 224px;
+			}
+
+			img {
+				margin-top: 12px;
+				width: 172px;
+				height: 172px;
+				border-radius: 100%;
+
+				@include grid-media($portrait) {
+					margin-top: 1px;
+					width: 110px;
+					height: 110px;
+				}
+			}
+		}
+	}
+
+	.ranking-swiper-container {
+		z-index: 100;
+		position: absolute;
+		bottom: 62px;
+		left: 50%;
+		translate: -50% 0;
+
+		@include grid-media($portrait) {
+			bottom: 100px;
+		}
+
+		.ranking-swiper {
+			width: 1122px;
+
+			@include grid-media($portrait) {
+				width: 609px;
+			}
+
+			.ranking-nor {
+				background-image: url("./assets/images/ranking-frame-normal.png");
+				background-size: 100% 100%;
+				width: 231px;
+				height: 281px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				.ranking-title {
+					flex-shrink: 0;
+					scale: 0.9;
+					@include image("sprite", $ranking-name);
+					margin-top: 14px;
+					font-size: 20px;
+					color: white;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					@include grid-media($portrait) {
+						scale: 0.65;
+						margin-top: 6px;
+					}
+				}
+
+				.text-container {
+					margin-top: 10px;
+
+					span {
+						font-weight: bold;
+					}
+
+					@include grid-media($portrait) {
+						font-size: 14px;
+					}
+				}
+
+				@include grid-media($portrait) {
+					width: 182px;
+					height: 218px;
+				}
+
+				img {
+					margin-top: 10px;
+					width: 120px;
+					height: 120px;
+					border-radius: 100%;
+
+					@include grid-media($portrait) {
+						width: 90px;
+						height: 90px;
+					}
+				}
+			}
+		}
+
+		button {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		.swiper-button-prev--rankingSwiper {
+			@include image("sprite", $button-prev);
+			margin-left: -92px;
+			position: absolute;
+			&::after {
+				display: none;
+			}
+
+			@include grid-media($portrait) {
+				margin-left: -90px;
+			}
+		}
+		.swiper-button-next--rankingSwiper {
+			@include image("sprite", $button-next);
+			margin-right: -92px;
+			position: absolute;
+			&::after {
+				display: none;
+			}
+
+			@include grid-media($portrait) {
+				margin-right: -90px;
+			}
+		}
+	}
+}

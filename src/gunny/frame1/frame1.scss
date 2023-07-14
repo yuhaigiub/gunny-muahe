@@ -1,0 +1,201 @@
+@import "../index.scss";
+@import "./sprites";
+
+.gunny_frame1 {
+	@include grid-media($landscape) {
+		&,
+		.section__background,
+		.section__content,
+		.inner {
+			height: 1052px;
+		}
+	}
+
+	@include grid-media($portrait) {
+		&,
+		.section__background,
+		.section__content,
+		.inner {
+			height: 967px;
+		}
+	}
+
+	.gunny-logo {
+		@include image("sprite", $gunnylogo);
+		position: absolute;
+		top: 17px;
+		left: 400px;
+
+		@include grid-media($portrait) {
+			left: 19px;
+			top: 16px;
+		}
+	}
+
+	.title {
+		position: absolute;
+		left: 587px;
+		top: 116px;
+		z-index: 1;
+
+		@include grid-media($portrait) {
+			left: 12px;
+			width: 725px;
+			height: 261px;
+		}
+	}
+
+	.character {
+		position: absolute;
+		top: 282px;
+		left: 808px;
+
+		@include grid-media($portrait) {
+			left: 200px;
+			top: 290px;
+			width: 506px;
+			height: 439px;
+		}
+	}
+
+	.prize {
+		position: absolute;
+		z-index: 2;
+		&.prize1 {
+			@include image("sprite", $gaykylan);
+			left: 570px;
+			top: 543px;
+
+			@include grid-media($portrait) {
+				left: 69px;
+				top: 563px;
+				@include image("sprite", $gaykylan-mobile);
+			}
+		}
+		&.prize2 {
+			@include image("sprite", $vongtay13tuoi);
+			left: 432px;
+			top: 699px;
+
+			@include grid-media($portrait) {
+				left: 7px;
+				top: 697px;
+				@include image("sprite", $vongtay13tuoi-mobile);
+			}
+		}
+		&.prize3 {
+			@include image("sprite", $kungfudaisu);
+			left: 610px;
+			bottom: 46px;
+
+			@include grid-media($portrait) {
+				left: 100px;
+				bottom: 72px;
+				@include image("sprite", $kungfudaisu-mobile);
+			}
+		}
+		&.prize4 {
+			@include image("sprite", $hoakhuyen);
+			left: 865px;
+			bottom: 3px;
+
+			@include grid-media($portrait) {
+				left: 280px;
+				bottom: 51px;
+				@include image("sprite", $hoakhuyen-mobile);
+				z-index: 4;
+			}
+		}
+		&.prize5 {
+			@include image("sprite", $bachdiemthanhho);
+			right: 546px;
+			bottom: 26px;
+
+			@include grid-media($portrait) {
+				right: 106px;
+				bottom: 70px;
+				@include image("sprite", $bachdiemthanhho-mobile);
+				z-index: 3;
+			}
+		}
+		&.prize6 {
+			@include image("sprite", $phuonghoanglua);
+			right: 431px;
+			bottom: 181px;
+
+			@include grid-media($portrait) {
+				right: 4px;
+				bottom: 130px;
+				@include image("sprite", $phuonghoanglua-mobile);
+			}
+		}
+		&.prize7 {
+			@include image("sprite", $tuonggunny);
+			right: 525px;
+			top: 536px;
+
+			@include grid-media($portrait) {
+				right: 16px;
+				top: 554px;
+				@include image("sprite", $tuonggunny-mobile);
+			}
+		}
+	}
+
+	.qua-sinh-nhat {
+		@include image("sprite", $qua-sinh-nhat);
+		position: absolute;
+		left: 508px;
+		top: 369px;
+
+		@include grid-media($portrait) {
+			left: 24px;
+			top: 356px;
+		}
+	}
+
+	.choi-ngay {
+		@include image("sprite", $choi-ngay-button);
+		position: absolute;
+		top: 362px;
+		right: 449px;
+	}
+
+	.menu {
+		position: absolute;
+		right: 387px;
+		top: 19px;
+
+		@include grid-media($portrait) {
+			top: 30px;
+			right: 24px;
+		}
+
+		ul {
+			display: flex;
+			gap: 10px;
+
+			@include grid-media($portrait) {
+				gap: 0px;
+			}
+		}
+
+		.menu-item {
+			@include image("sprite", $menu-unclick);
+			color: rgb(255, 255, 255);
+			font-size: 16px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-right: -12px;
+		}
+
+		.menu-item[data-active] {
+			@include image("sprite", $menu-click);
+			font-size: 16px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}

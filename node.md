@@ -1,0 +1,7 @@
+- Remove old ./dist
+- Copy ./src/setup/scripts/res/dist -> ./dist
+- Blocks -> ./dist/src/{collection}/{block}
+- Blocks -> ./dist/webpack.config.js
+- Blocks -> ./dist/src/prod/js/\_blockBundles.js
+- Blocks -> ./dist/src/prod/html/index.html.twig
+- Article -> ./dist/src/article

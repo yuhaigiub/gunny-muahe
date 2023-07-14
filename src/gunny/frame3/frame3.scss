@@ -1,0 +1,185 @@
+@import "../index.scss";
+@import "./sprites";
+
+.gunny_frame3 {
+	@include grid-media($landscape) {
+		&,
+		.section__background,
+		.section__content,
+		.inner {
+			height: 1080px;
+		}
+	}
+
+	@include grid-media($portrait) {
+		&,
+		.section__background,
+		.section__content,
+		.inner {
+			height: 1856px;
+		}
+	}
+
+	.title {
+		position: absolute;
+		left: 50%;
+		translate: -50%;
+	}
+
+	.content-container {
+		display: flex;
+		position: absolute;
+		bottom: 50px;
+		left: 50%;
+		translate: -50% 0;
+
+		@include grid-media($portrait) {
+			flex-direction: column;
+			align-self: center;
+		}
+
+		.mq5 {
+			position: relative;
+			background-image: url("./assets/images/mq5-container.png");
+			background-size: 100% 100%;
+			width: 804px;
+			height: 827px;
+			box-sizing: border-box;
+			padding: 42px;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			@include grid-media($portrait) {
+				width: 734px;
+				height: 734px;
+				gap: 8px;
+			}
+
+			.top-button-container {
+				display: flex;
+				justify-content: space-evenly;
+				width: 100%;
+
+				button {
+					@include image("sprite", $blue-button);
+					background-color: transparent;
+					border: none;
+					font-size: 26px;
+					color: white;
+					cursor: pointer;
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+
+			.text-container {
+				display: flex;
+				justify-content: space-between;
+
+				span {
+					font-weight: bold;
+				}
+			}
+
+			.effect {
+				display: grid;
+				grid-template-rows: repeat(3, 1fr);
+				grid-template-columns: repeat(3, 1fr);
+				gap: 20px;
+				place-items: center;
+
+				@include grid-media($portrait) {
+					scale: calc(654 / 724);
+					gap: 10px;
+					position: relative;
+					top: -24px;
+				}
+
+				#item-1 {
+					@include image("sprite", $prize1);
+				}
+				#item-2 {
+					@include image("sprite", $prize2);
+				}
+				#item-3 {
+					@include image("sprite", $prize3);
+				}
+				#item-4 {
+					@include image("sprite", $prize4);
+				}
+				#item-5 {
+					@include image("sprite", $prize4);
+				}
+				#item-6 {
+					@include image("sprite", $prize6);
+				}
+				#item-7 {
+					@include image("sprite", $prize7);
+				}
+				#item-8 {
+					@include image("sprite", $prize8);
+				}
+
+				.effect__item {
+					position: relative;
+					&.active::after {
+						content: "";
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						background-color: rgb(255, 255, 35);
+						opacity: 0.75;
+					}
+				}
+
+				.spin-button-container {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+
+					button {
+						@include image("sprite", $red-button);
+					}
+
+					button:first-child {
+						@include image("sprite", $yellow-button);
+					}
+
+					button {
+						font-size: 25px !important;
+						border: none;
+						background-color: transparent;
+						color: rgb(225, 226, 108);
+						color: black;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						cursor: pointer;
+						position: relative;
+						z-index: 1000;
+						&:focus {
+							outline: none;
+						}
+					}
+				}
+			}
+		}
+
+		.danh-sach {
+			background-image: url("./assets/images/danh-sach-trung-thuong.png");
+			width: 447px;
+			height: 867px;
+
+			@include grid-media($portrait) {
+				margin-inline: auto;
+			}
+		}
+	}
+}

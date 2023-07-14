@@ -1,0 +1,39 @@
+{% spaceless %}
+	{% set blockId = blockId|default("gunny_frame1") %}
+	{% set blockIdPostFix = blockIdPostFix|default("") %}
+	<section id="{{ blockId }}{{ blockIdPostFix }}" class="section section--{{ blockId }} {{ blockId }} scrollFrame" data-block-id="{{ blockId }}">
+		<div
+			class="section__background">
+			{# NOTE: add background images and video here #}
+			<img data-src="gunny/frame1/images/bg.jpg" alt="" class="lazyload desktop">
+			<img data-src="gunny/frame1/images/bg-mobile.jpg" alt="" class="lazyload mobile">
+			<span id="{{ blockId }}{{ blockIdPostFix }}-scrollwatch-pin" class="scrollwatch-pin"></span>
+		</div>
+		<div class="section__content">
+			<div
+				class="inner inner--{{ blockId }}">
+				{# NOTE: add component's content here #}
+				<a href="#" class="gunny-logo">Logo</a>
+				<img data-src="gunny/frame1/images/title.png" alt="" class="lazyload title">
+				<img data-src="gunny/frame1/images/character.png" alt="" class="lazyload character">
+				<div class="prize1 prize"></div>
+				<div class="prize2 prize"></div>
+				<div class="prize3 prize"></div>
+				<div class="prize4 prize"></div>
+				<div class="prize5 prize"></div>
+				<div class="prize6 prize"></div>
+				<div class="prize7 prize"></div>
+				<a href="#" class="qua-sinh-nhat">Quà Sinh Nhật</a>
+				<a href="#" class="choi-ngay desktop">Chơi Ngay</a>
+				<nav class="menu">
+					<ul>
+						<li class="menu-item" data-active>Trang Chủ</li>
+						<li class="menu-item">Cộng Đồng</li>
+						<li class="menu-item">Puffin</li>
+						<li class="menu-item">Nạp Xu</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+{% endspaceless %}

@@ -1,0 +1,57 @@
+@import "../index.scss";
+@import "./sprites";
+
+.floating {
+	.gunny_float_bottom {
+		position: absolute;
+		bottom: 0%;
+		left: 0%;
+
+		z-index: 1000;
+		background-color: red;
+		pointer-events: all;
+		z-index: 1000;
+		background-color: red;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@include grid-media($portrait) {
+			width: var(--width-mobile);
+			// background-color: rgba(#fff, 0);
+			// padding: 0 14px;
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				z-index: -1;
+			}
+
+			&.active {
+			}
+
+			.bottom {
+				background-image: url("./assets/images/bg.jpg");
+				width: 768px;
+				height: 132px;
+				display: grid;
+				grid-template-columns: repeat(6, 1fr);
+				z-index: 1000;
+				box-sizing: border-box;
+				padding-inline: 28px;
+				gap: 10px;
+
+				.bottom-text {
+					color: white;
+					padding-top: 22px;
+					font-size: 26px;
+					flex-shrink: 0;
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

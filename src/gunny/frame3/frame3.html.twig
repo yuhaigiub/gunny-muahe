@@ -1,0 +1,54 @@
+{% spaceless %}
+	{% set blockId = blockId|default("gunny_frame3") %}
+	{% set blockIdPostFix = blockIdPostFix|default("") %}
+	<section id="{{ blockId }}{{ blockIdPostFix }}" class="section section--{{ blockId }} {{ blockId }} scrollFrame" data-block-id="{{ blockId }}">
+		<div
+			class="section__background">
+			{# NOTE: add background images and video here #}
+			<img data-src="gunny/frame3/images/bg.jpg" alt="" class="lazyload desktop">
+			<img data-src="gunny/frame3/images/bg-mobile.jpg" alt="" class="lazyload mobile">
+			<span id="{{ blockId }}{{ blockIdPostFix }}-scrollwatch-pin" class="scrollwatch-pin"></span>
+		</div>
+		<div class="section__content">
+			<div class="inner inner--{{ blockId }}">
+				<img src="gunny/frame3/images/title.png" alt="" class="title">
+				<div class="content-container">
+					<div class="mq5">
+						<div class="top-button-container">
+							<button>Đăng Xuất</button>
+							<button>Lịch Sử</button>
+							<button>Nhận Lượt</button>
+						</div>
+						<div class="text-container">
+							<div>Xin chào:
+								<span>Ngô Bình Phương Phi Vũ</span>
+							</div>
+							<div>
+								Bạn có:
+								<span class="spoint">100</span>
+								lượt quay
+							</div>
+						</div>
+						<div class="effect" id="effect">
+							<div id="item-1" class="effect__item key-A">item</div>
+							<div id="item-2" class="effect__item key-B">item</div>
+							<div id="item-3" class="effect__item key-C">item</div>
+							<div id="item-8" class="effect__item key-H">item</div>
+							<div class="spin-button-container">
+								<button class="pm__rut rut-1" data-value="1">Quay X1</button>
+								<button class="pm__rut" data-value="10">Quay X10</button>
+								<button>Đổi Quà</button>
+							</div>
+							<div id="item-4" class="effect__item key-D">item</div>
+							<div id="item-7" class="effect__item key-G">item</div>
+							<div id="item-6" class="effect__item key-F">item</div>
+							<div id="item-5" class="effect__item key-E">item</div>
+						</div>
+					</div>
+					<div class="danh-sach"></div>
+				</div>
+				{# NOTE: add component's content here #}
+			</div>
+		</div>
+	</section>
+{% endspaceless %}

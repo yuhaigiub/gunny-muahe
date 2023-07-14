@@ -1,0 +1,156 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$button-next-name: 'button-next';
+$button-next-x: 204px;
+$button-next-y: 116px;
+$button-next-offset-x: -204px;
+$button-next-offset-y: -116px;
+$button-next-width: 79px;
+$button-next-height: 91px;
+$button-next-total-width: 381px;
+$button-next-total-height: 215px;
+$button-next-image: 'assets/_sprites.png';
+$button-next: (204px, 116px, -204px, -116px, 79px, 91px, 381px, 215px, 'assets/_sprites.png', 'button-next', );
+$button-prev-name: 'button-prev';
+$button-prev-x: 285px;
+$button-prev-y: 116px;
+$button-prev-offset-x: -285px;
+$button-prev-offset-y: -116px;
+$button-prev-width: 77px;
+$button-prev-height: 91px;
+$button-prev-total-width: 381px;
+$button-prev-total-height: 215px;
+$button-prev-image: 'assets/_sprites.png';
+$button-prev: (285px, 116px, -285px, -116px, 77px, 91px, 381px, 215px, 'assets/_sprites.png', 'button-prev', );
+$crown-1st-name: 'crown-1st';
+$crown-1st-x: 0px;
+$crown-1st-y: 0px;
+$crown-1st-offset-x: 0px;
+$crown-1st-offset-y: 0px;
+$crown-1st-width: 119px;
+$crown-1st-height: 114px;
+$crown-1st-total-width: 381px;
+$crown-1st-total-height: 215px;
+$crown-1st-image: 'assets/_sprites.png';
+$crown-1st: (0px, 0px, 0px, 0px, 119px, 114px, 381px, 215px, 'assets/_sprites.png', 'crown-1st', );
+$crown-2nd-name: 'crown-2nd';
+$crown-2nd-x: 0px;
+$crown-2nd-y: 116px;
+$crown-2nd-offset-x: 0px;
+$crown-2nd-offset-y: -116px;
+$crown-2nd-width: 100px;
+$crown-2nd-height: 99px;
+$crown-2nd-total-width: 381px;
+$crown-2nd-total-height: 215px;
+$crown-2nd-image: 'assets/_sprites.png';
+$crown-2nd: (0px, 116px, 0px, -116px, 100px, 99px, 381px, 215px, 'assets/_sprites.png', 'crown-2nd', );
+$crown-3rd-name: 'crown-3rd';
+$crown-3rd-x: 102px;
+$crown-3rd-y: 116px;
+$crown-3rd-offset-x: -102px;
+$crown-3rd-offset-y: -116px;
+$crown-3rd-width: 100px;
+$crown-3rd-height: 99px;
+$crown-3rd-total-width: 381px;
+$crown-3rd-total-height: 215px;
+$crown-3rd-image: 'assets/_sprites.png';
+$crown-3rd: (102px, 116px, -102px, -116px, 100px, 99px, 381px, 215px, 'assets/_sprites.png', 'crown-3rd', );
+$ranking-name-top-name: 'ranking-name-top';
+$ranking-name-top-x: 121px;
+$ranking-name-top-y: 0px;
+$ranking-name-top-offset-x: -121px;
+$ranking-name-top-offset-y: 0px;
+$ranking-name-top-width: 260px;
+$ranking-name-top-height: 45px;
+$ranking-name-top-total-width: 381px;
+$ranking-name-top-total-height: 215px;
+$ranking-name-top-image: 'assets/_sprites.png';
+$ranking-name-top: (121px, 0px, -121px, 0px, 260px, 45px, 381px, 215px, 'assets/_sprites.png', 'ranking-name-top', );
+$ranking-name-name: 'ranking-name';
+$ranking-name-x: 121px;
+$ranking-name-y: 47px;
+$ranking-name-offset-x: -121px;
+$ranking-name-offset-y: -47px;
+$ranking-name-width: 200px;
+$ranking-name-height: 40px;
+$ranking-name-total-width: 381px;
+$ranking-name-total-height: 215px;
+$ranking-name-image: 'assets/_sprites.png';
+$ranking-name: (121px, 47px, -121px, -47px, 200px, 40px, 381px, 215px, 'assets/_sprites.png', 'ranking-name', );
+$spritesheet-width: 381px;
+$spritesheet-height: 215px;
+$spritesheet-image: 'assets/_sprites.png';
+$spritesheet-sprites: ($button-next, $button-prev, $crown-1st, $crown-2nd, $crown-3rd, $ranking-name-top, $ranking-name, );
+$spritesheet: (381px, 215px, 'assets/_sprites.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
