@@ -91,4 +91,16 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
 		},
 		callback: function () {},
 	});
+
+	const danhSachSwiper = $("#danhSachSwiper").initSwiper({
+		swiperOptions: {
+			direction: "vertical",
+			slidesPerView: 7,
+			scrollbar: {
+				el: "#danhSachSwiper .swiper-scrollbar",
+				draggable: true,
+				dragSize: 4,
+			},
+		},
+	});
 });

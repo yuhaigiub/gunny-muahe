@@ -177,9 +177,54 @@
 			background-image: url("./assets/images/danh-sach-trung-thuong.png");
 			width: 447px;
 			height: 867px;
-
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			gap: 20px;
 			@include grid-media($portrait) {
 				margin-inline: auto;
+			}
+
+			.heading {
+				font-size: 32px;
+				color: red;
+			}
+
+			#danhSachSwiper {
+				flex-shrink: 0;
+				width: 400px;
+				height: 640px;
+				padding-inline: 20px;
+
+				.swiper-slide {
+					border-top: 1px solid gray;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+
+					.text-top {
+						font-size: 20px;
+						span {
+							font-weight: bold;
+						}
+					}
+
+					.text-bottom {
+						font-size: 22px;
+						color: red;
+					}
+				}
+				.swiper-slide:last-child {
+					border-bottom: 1px solid gray;
+				}
+
+				#danhSachScrollbar {
+					width: 4px;
+					height: 100px;
+					background-color: red !important;
+					z-index: 100;
+				}
 			}
 		}
 	}

@@ -1,6 +1,31 @@
 @import "../index.scss";
 @import "./sprites";
 
+@keyframes characterWobble {
+	0% {
+		translate: 0 0;
+		rotate: 0;
+	}
+
+	25% {
+		translate: 5% 0;
+		rotate: 10deg;
+	}
+
+	50% {
+		translate: 0 0;
+	}
+
+	75% {
+		translate: -5% 0;
+		rotate: -10deg;
+	}
+
+	100% {
+		translate: 0 0;
+	}
+}
+
 .gunny_frame1 {
 	@include grid-media($landscape) {
 		&,
@@ -46,6 +71,9 @@
 	}
 
 	.character {
+		animation-name: characterWobble;
+		animation-duration: 20s;
+		animation-iteration-count: infinite;
 		position: absolute;
 		top: 282px;
 		left: 808px;
@@ -59,6 +87,7 @@
 	}
 
 	.prize {
+		--animate-duration: 20s;
 		position: absolute;
 		z-index: 2;
 		&.prize1 {
@@ -143,6 +172,8 @@
 	}
 
 	.qua-sinh-nhat {
+		--animate-duration: 2s;
+		@include imageBtn();
 		@include image("sprite", $qua-sinh-nhat);
 		position: absolute;
 		left: 508px;
@@ -155,6 +186,8 @@
 	}
 
 	.choi-ngay {
+		--animate-duration: 2.5s;
+		@include imageBtn();
 		@include image("sprite", $choi-ngay-button);
 		position: absolute;
 		top: 362px;
@@ -181,9 +214,12 @@
 		}
 
 		.menu-item {
+			@include imageBtn();
 			@include image("sprite", $menu-unclick);
 			color: rgb(255, 255, 255);
 			font-size: 16px;
+			user-select: none;
+			cursor: pointer;
 			display: flex;
 			justify-content: center;
 			align-items: center;
