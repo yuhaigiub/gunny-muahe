@@ -4,6 +4,7 @@ import "../../setup/js/_scaleRoot.2";
 import "../../setup/js/_swiper";
 import "../../setup/js/_universalLink";
 import "../../setup/js/_scrollwatch";
+
 // import "lazysizes";
 // import "@fancyapps/fancybox";
 
@@ -22,6 +23,9 @@ window.addEventListener("load", function () {
 	$("[data-fancybox]").fancybox({
 		caption: function (instance, item) {
 			return $(this).find("figcaption").html();
+		},
+		beforShow: function (instance, item) {
+			console.log($(this));
 		},
 	});
 });

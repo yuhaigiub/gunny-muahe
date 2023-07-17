@@ -53,6 +53,17 @@ try {
 					dir: "../../gunny/float_bottom/float_bottom",
 				},
 			},
+			popup: {
+				html: {
+					confirm: require("../../gunny/popup/html/popup_confirm.html.twig"),
+					congrats: require("../../gunny/popup/html/popup_congrats.html.twig"),
+					content: require("../../gunny/popup/html/popup_content.html.twig"),
+					signin: require("../../gunny/popup/html/popup_signin.html.twig"),
+				},
+				scss: require("../../gunny/popup/popup.scss"),
+				js: require("../../gunny/popup/popup.js"),
+				dir: "../../gunny/popup/popup",
+			},
 		},
 	};
 } catch (error) {

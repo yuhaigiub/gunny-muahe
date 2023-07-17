@@ -1,0 +1,34 @@
+<div id="popup-signin" class="popup" data-block-id="{{ blockId }}">
+	<div
+		class="popup__background">
+		{# NOTE: add background images and video here #}
+		<span id="{{ blockId }}{{ blockIdPostFix }}-scrollwatch-pin" class="scrollwatch-pin"></span>
+	</div>
+	<div class="popup__content">
+		<div class="popup-container">
+			<button class="close-btn">Close</button>
+			<div class="center">
+				<form action="">
+					<div class="field">
+						<label for="">Tên Đăng Nhập:</label>
+						<input class="input"/>
+					</div>
+					<div class="field">
+						<label for="">Mật Khẩu:</label>
+						<input class="input" type="password"/>
+					</div>
+					<div class="button-container">
+						<button>Đăng Nhập</button>
+						<button>Nhập Lại</button>
+					</div>
+				</form>
+				<div class="link-container">
+					<div>Bạn không có tài khoảng ZingID?
+						<a href="#" class="new-acc">Tạo tài khoản mới</a>
+					</div>
+					<a href="#" class="forget-pass">Quên Mật Khẩu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

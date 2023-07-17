@@ -2,21 +2,36 @@
 @import "./sprites";
 
 .gunny_float_left {
-	@include grid-media($portrait) {
-		&,
-		.section__background,
-		.section__content,
-		.inner {
-			height: 1080px;
-		}
-	}
+	position: absolute;
+	top: 200px;
+	left: 20px;
+	z-index: 1000;
+	pointer-events: all;
+	transform-origin: top left !important;
 
-	@include grid-media($landscape) {
-		&,
-		.section__background,
-		.section__content,
-		.inner {
-			height: 1080px;
+	.left {
+		background-image: url("./assets/images/bg.png");
+		width: 201px;
+		height: 580px;
+		z-index: 1000;
+		box-sizing: border-box;
+		padding-inline: 28px;
+		gap: 10px;
+		padding-top: 120px;
+		padding-inline: 0;
+
+		li {
+			margin-bottom: 32px;
+		}
+
+		a {
+			color: white;
+			font-size: 26px;
+			display: flex;
+			justify-content: center;
+			&:hover {
+				color: yellow;
+			}
 		}
 	}
 }

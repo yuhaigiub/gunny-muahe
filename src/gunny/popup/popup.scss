@@ -1,22 +1,193 @@
 @import "../index.scss";
 @import "./sprites";
 
-.gunny_popup {
-	@include grid-media($portrait) {
-		&,
-		.section__background,
-		.section__content,
-		.inner {
-			height: 1080px;
+.popup {
+	position: relative;
+	display: flex !important;
+	button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		&:focus-within {
+			outline: none;
 		}
 	}
 
-	@include grid-media($landscape) {
-		&,
-		.section__background,
-		.section__content,
-		.inner {
-			height: 1080px;
+	.btn {
+		@include image("sprite", $green-button);
+		font-size: 26px;
+		color: yellow;
+		flex-shrink: 0;
+	}
+
+	.popup-container {
+		background-image: url("./assets/images/frame.png");
+		background-size: 100% 100%;
+		position: relative;
+		.close-btn {
+			@include image("sprite", $close-btn);
+
+			position: absolute;
+			right: 40px;
+			top: 40px;
+		}
+	}
+
+	.center {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&#popup-confirm {
+		.popup-container {
+			width: 789px;
+			height: 510px;
+		}
+
+		.text {
+			font-size: 20px;
+			width: 600px;
+			text-align: center;
+		}
+	}
+
+	&#popup-congrats {
+		.popup-container {
+			width: 789px;
+			height: 510px;
+		}
+
+		.center {
+			height: 300px;
+			justify-content: space-between;
+			gap: 20px;
+		}
+
+		.heading {
+			color: black;
+			font-size: 32px;
+			font-weight: 700;
+			width: 700px;
+			text-align: center;
+		}
+
+		.prize {
+			flex-shrink: 0;
+		}
+
+		.prize-1 {
+			@include image("sprite", $prize1);
+		}
+		.prize-2 {
+			@include image("sprite", $prize2);
+		}
+		.prize-3 {
+			@include image("sprite", $prize3);
+		}
+		.prize-4 {
+			@include image("sprite", $prize4);
+		}
+		.prize-5 {
+			@include image("sprite", $prize4);
+		}
+		.prize-6 {
+			@include image("sprite", $prize6);
+		}
+		.prize-7 {
+			@include image("sprite", $prize7);
+		}
+		.prize-8 {
+			@include image("sprite", $prize8);
+		}
+	}
+
+	&#popup-content {
+		.popup-container {
+			background-image: url("./assets/images/frame-content.png");
+			width: 1019px;
+			height: 685px;
+		}
+
+		.center {
+			width: 700px;
+			height: 450px;
+			overflow-y: scroll;
+			position: absolute;
+			top: 160px;
+			translate: -50% 0%;
+			@include scrollBar(rgb(255, 215, 140), red);
+		}
+	}
+
+	&#popup-signin {
+		.popup-container {
+			background-image: url("./assets/images/frame-signin.png");
+			width: 1023px;
+			height: 658px;
+		}
+
+		.center {
+			top: 140px;
+			translate: -50% 0%;
+			width: 700px;
+			height: 450px;
+			justify-content: space-evenly;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 30px;
+		}
+
+		.field {
+			display: flex;
+			align-items: center;
+			label {
+				flex-shrink: 0;
+				width: 177px;
+				font-size: 24px;
+			}
+			.input {
+				flex-shrink: 0;
+				background-image: url("./assets/images/input.png");
+				width: 480px;
+				height: 55px;
+				background-color: transparent;
+				border: none;
+				color: white;
+				padding-inline: 20px;
+			}
+		}
+
+		.button-container {
+			display: flex;
+			gap: 10px;
+			button {
+				@include image("sprite", $green-button);
+				font-size: 24px;
+				color: white;
+			}
+		}
+
+		.link-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-self: flex-end;
+			font-size: 24px;
+			a {
+				color: red;
+				text-decoration: underline;
+			}
 		}
 	}
 }

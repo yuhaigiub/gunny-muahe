@@ -1,15 +1,34 @@
 {% spaceless %}
-{% set blockId = blockId|default("gunny_float_left") %}
-{% set blockIdPostFix = blockIdPostFix|default("") %}
-	<section id="{{ blockId }}{{ blockIdPostFix }}" class="section section--{{ blockId }} {{ blockId }} scrollFrame" data-block-id="{{ blockId }}">
-		<div class="section__background">
+	{% set blockId = blockId|default("gunny_float_left") %}
+	{% set blockIdPostFix = blockIdPostFix|default("") %}
+	<div id="{{ blockId }}{{ blockIdPostFix }}" class="floatleft {{ blockId }} scrollFrame scaleMobile scaleDesktop desktop" data-block-id="{{ blockId }}">
+		<div
+			class="floatleft__background">
 			{# NOTE: add background images and video here #}
 			<span id="{{ blockId }}{{ blockIdPostFix }}-scrollwatch-pin" class="scrollwatch-pin"></span>
 		</div>
-		<div class="section__content">
-			<div class="inner inner--{{ blockId }}">
-				{# NOTE: add component's content here #}
-			</div>
+		<div class="floatleft__content">
+			<ul class="left">
+				<li>
+					<a href="#" class="item1">Giới Thiệu</a>
+				</li>
+				<li>
+					<a href="#" class="item2">Giải Thưởng</a>
+				</li>
+				<li>
+					<a href="#" class="item3">Thể Lệ</a>
+				</li>
+				<li>
+					<a href="#" class="item4">Hướng Dẫn</a>
+				</li>
+				<li>
+					<a href="#" class="item5">Bảng Xếp Hạng</a>
+				</li>
+				<li>
+					<a href="#" class="item6">Tham Gia</a>
+				</li>
+
+			</ul>
 		</div>
-	</section>
+	</div>
 {% endspaceless %}
