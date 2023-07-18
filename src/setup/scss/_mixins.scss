@@ -59,11 +59,11 @@
 		#{calc(-1 / 2) * $width} #{calc(1 / 2) * $width} 0 $color;
 }
 
-@mixin defaultHover() {
+@mixin defaultHover($percentage: 110%) {
 	&:not(.off):hover {
 		cursor: pointer;
 		pointer-events: all;
-		filter: brightness(110%);
+		filter: brightness($percentage);
 	}
 }
 

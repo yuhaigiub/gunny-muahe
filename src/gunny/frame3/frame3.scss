@@ -168,7 +168,7 @@
 						font-size: 25px !important;
 						border: none;
 						background-color: transparent;
-						color: rgb(255,226, 108);
+						color: rgb(255, 226, 108);
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -188,10 +188,11 @@
 			background-image: url("./assets/images/danh-sach-trung-thuong.png");
 			width: 447px;
 			height: 867px;
+			padding-top: 60px;
 			display: flex;
-			justify-content: center;
-			align-items: center;
 			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
 			gap: 20px;
 			@include grid-media($portrait) {
 				margin-inline: auto;
@@ -203,16 +204,23 @@
 				color: rgb(121, 44, 12);
 			}
 
-			#danhSachSwiper {
+			#danhSach {
 				flex-shrink: 0;
-				width: 400px;
-				height: 640px;
+				width: 370px;
+				height: 647px;
+				overflow-y: scroll;
 				padding-inline: 20px;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				
+				@include scrollBar(rgb(255, 254, 239), rgb(122, 0, 38));
 
-				.swiper-slide {
+				.text-container {
 					font-family: roboto;
 					font-weight: 500;
 					border-top: 1px solid gray;
+					padding-block: 16px;
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
@@ -241,5 +249,8 @@
 				}
 			}
 		}
+	}
+	button, a {
+		@include defaultHover();
 	}
 }

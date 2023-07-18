@@ -351,4 +351,8 @@
 			}
 		}
 	}
+
+	button, a {
+		@include defaultHover();
+	}
 }

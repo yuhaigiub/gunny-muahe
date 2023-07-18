@@ -715,6 +715,11 @@
     margin-right: -90px;
   }
 }
+.gunny_frame2 button:not(.off):hover, .gunny_frame2 a:not(.off):hover {
+  cursor: pointer;
+  pointer-events: all;
+  filter: brightness(110%);
+}
 .gunny_frame3 {
   margin-top: -1px;
 }
@@ -947,10 +952,11 @@
   background-image: url(../prod/gunny/frame3/images/danh-sach-trung-thuong.png);
   width: 447px;
   height: 867px;
+  padding-top: 60px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   gap: 20px;
 }
 @media (orientation:portrait) {
@@ -963,39 +969,70 @@
   font-size: 30px;
   color: rgb(121, 44, 12);
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper {
+.gunny_frame3 .content-container .danh-sach #danhSach {
   flex-shrink: 0;
-  width: 400px;
-  height: 640px;
+  width: 370px;
+  height: 647px;
+  overflow-y: scroll;
   padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper .swiper-slide {
+.gunny_frame3 .content-container .danh-sach #danhSach::-webkit-scrollbar {
+  margin-right: 6px;
+  width: 6px;
+  -webkit-transition: width 0.2s;
+  transition: width 0.2s;
+}
+.gunny_frame3 .content-container .danh-sach #danhSach:hover::-webkit-scrollbar {
+  width: 6px;
+}
+.gunny_frame3 .content-container .danh-sach #danhSach::-webkit-scrollbar-track {
+  background: rgba(255, 254, 239, 0.5);
+}
+.gunny_frame3 .content-container .danh-sach #danhSach::-webkit-scrollbar-thumb {
+  background: #7a0026;
+}
+.gunny_frame3 .content-container .danh-sach #danhSach::-webkit-scrollbar-thumb:hover {
+  background: #7a0026;
+}
+.gunny_frame3 .content-container .danh-sach #danhSach .text-container {
   font-family: roboto;
   font-weight: 500;
   border-top: 1px solid gray;
+  padding-block: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper .swiper-slide .text-top {
+.gunny_frame3 .content-container .danh-sach #danhSach .text-container .text-top {
   font-size: 24px;
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper .swiper-slide .text-top span {
+.gunny_frame3 .content-container .danh-sach #danhSach .text-container .text-top span {
   font-weight: 900;
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper .swiper-slide .text-bottom {
+.gunny_frame3 .content-container .danh-sach #danhSach .text-container .text-bottom {
   font-weight: 900;
   font-size: 24px;
   color: rgb(155, 51, 0);
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper .swiper-slide:last-child {
+.gunny_frame3 .content-container .danh-sach #danhSach .swiper-slide:last-child {
   border-bottom: 1px solid gray;
 }
-.gunny_frame3 .content-container .danh-sach #danhSachSwiper #danhSachScrollbar {
+.gunny_frame3 .content-container .danh-sach #danhSach #danhSachScrollbar {
   width: 4px;
   height: 100px;
   background-color: red !important;
   z-index: 100;
+}
+.gunny_frame3 button:not(.off):hover, .gunny_frame3 a:not(.off):hover {
+  cursor: pointer;
+  pointer-events: all;
+  filter: brightness(110%);
 }
 .gunny_float_left {
   position: absolute;

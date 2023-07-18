@@ -1,4 +1,4 @@
-import { dndPromotion } from "../../setup/js/_promotion";
+import {dndPromotion} from "../../setup/js/_promotion";
 import scrollWatch from "../../setup/js/_scrollWatch.2";
 
 let prodTemplate = {
@@ -13,7 +13,7 @@ let prodTemplate = {
 		F: "6",
 		G: "7",
 		H: "8",
-		length: 9,
+		length: 8,
 		type: "png",
 	},
 	names: [
@@ -125,18 +125,6 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
 			}, 0);
 		},
 		callback: function () {},
-	});
-
-	const danhSachSwiper = $("#danhSachSwiper").initSwiper({
-		swiperOptions: {
-			direction: "vertical",
-			slidesPerView: 7,
-			scrollbar: {
-				el: "#danhSachSwiper .swiper-scrollbar",
-				draggable: true,
-				dragSize: 4,
-			},
-		},
 	});
 
 	// write code to check if user sign in or not later
