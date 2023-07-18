@@ -31,7 +31,7 @@
 	.content-container {
 		display: flex;
 		position: absolute;
-		bottom: 50px;
+		bottom: 4px;
 		left: 50%;
 		translate: -50% 0;
 
@@ -41,6 +41,7 @@
 		}
 
 		.mq5 {
+			--animate-duration: 1s;
 			position: relative;
 			background-image: url("./assets/images/mq5-container.png");
 			background-size: 100% 100%;
@@ -183,6 +184,7 @@
 		}
 
 		.danh-sach {
+			--animate-duration: 1s;
 			background-image: url("./assets/images/danh-sach-trung-thuong.png");
 			width: 447px;
 			height: 867px;

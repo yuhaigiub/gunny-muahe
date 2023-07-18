@@ -360,25 +360,28 @@ $(document).on("gunny_frame2 rendered", {}, function (event, uniqueId) {
       }
     }
   });
+  const isTerminating = [false, false, false];
   $(".ranking-top").each(function (index, el) {
     const elementId = "#" + $(el).attr("id");
     _setup_js_scrollWatch_2__WEBPACK_IMPORTED_MODULE_0__["default"].init({
       el: elementId,
       options: {
         watch: elementId,
-        scrollThrottle: 100,
+        scrollThrottle: 200,
         onElementInView: function (e) {
+          if (index === 1) console.log(elementId + " in view");
           $(el).addClass("animate__animated");
           $(el).addClass("animate__fadeInUp");
-          setTimeout(() => {
-            $(el).removeClass("animate__animated");
-            $(el).removeClass("animate__fadeInUp");
-          }, 3000);
+          if (!isTerminating[index]) {
+            isTerminating[index] = true;
+            setTimeout(() => {
+              $(el).removeClass("animate__animated");
+              $(el).removeClass("animate__fadeInUp");
+              isTerminating[index] = false;
+            }, 1000);
+          }
         },
-        onElementOutOfView: function (e) {
-          $(el).removeClass("animate__animated");
-          $(el).removeClass("animate__fadeInUp");
-        }
+        onElementOutOfView: function (e) {}
       }
     });
   });
@@ -464,7 +467,7 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
       }
       const displayPrize = listPrize[0];
       console.log(displayPrize.characterImg, displayPrize.indexImg);
-      const test = ["A", "B", "C", "D", "E", "F", "G", "H"];
+      const prizes = ["A", "B", "C", "D", "E", "F", "G", "H"];
       let innerHTML = "";
       for (let item of listPrize) {
         innerHTML += `<div class="prize prize-${item.indexImg}"></div>`;
@@ -478,34 +481,56 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
       setTimeout(function () {
         $("#effect").removeClass("animating");
         var characterName = displayPrize.characterImg;
-        // var characterName = test[Math.floor(Math.random() * test.length)];
         var listItem = $(`.key-${characterName}`);
         var itemIndex = listItem.length > 1 ? listItem[randomInRange(0, 1)].id.slice(5) : listItem[0].id.slice(5);
-        var prizeIndex = itemIndex;
-        var order = -1;
-        var rounds = 4;
-        let speed = 50;
-        (function linearLoop(i) {
-          setTimeout(function () {
-            $("#effect .effect__item").removeClass("active");
-            order++;
-            if (items[order] === undefined) {
-              order = 0;
-            }
-            var getitem = items[order].attr("id").slice(5);
-            console.log(getitem);
-            items[order].addClass("active");
-            if (order == prizeIndex - 1) rounds--;
-            if (rounds) linearLoop(i);else {
-              setTimeout(function () {
-                // recieve prize
-                $("#popup-congrats").addClass("active");
-                items[order].addClass("active");
-                console.log(`ban da trung item ${$("#effect .effect__item").eq(order).attr("id")}`);
-              }, 600);
-            }
-          }, speed);
-        })(99);
+        var prizeIndex = parseInt(itemIndex);
+
+        // change
+        const minSpeed = 50;
+        const start = 0;
+        const rounds = 3;
+
+        // don't change
+        let speed = minSpeed;
+        let order = start - 1;
+        let steps = rounds * prizes.length + (prizeIndex - start);
+        let currentStep = 0;
+        function timeout(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function wait(ms, callback) {
+          await timeout(ms);
+          callback();
+        }
+
+        // write change active class logic here
+        function executeLoop() {
+          $("#effect .effect__item").removeClass("active");
+          order++;
+          if (items[order] === undefined) {
+            order = 0;
+          }
+          var getitem = items[order].attr("id").slice(5);
+          items[order].addClass("active");
+        }
+        function afterLoop() {
+          $("#popup-congrats").addClass("active");
+          items[order].addClass("active");
+          console.log(`ban da trung item ${$("#effect .effect__item").eq(order).attr("id")}`);
+        }
+
+        // magic
+        async function linearLoopControl() {
+          while (currentStep < steps) {
+            await wait(speed, () => {
+              currentStep++;
+              executeLoop();
+              speed += 0.1 * speed;
+            });
+          }
+          await wait(600, afterLoop);
+        }
+        linearLoopControl();
       }, 0);
     },
     callback: function () {}
@@ -531,6 +556,7 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
       event.stopImmediatePropagation();
     }
   });
+  let isTerminatingMq5 = false;
   const animNameMq5 = "animate__fadeInLeft";
   _setup_js_scrollWatch_2__WEBPACK_IMPORTED_MODULE_1__["default"].init({
     el: "#mq5-scrollWatch",
@@ -540,17 +566,19 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
       onElementInView: function (e) {
         $("#mq5-scrollWatch").addClass("animate__animated");
         $("#mq5-scrollWatch").addClass(animNameMq5);
-        setTimeout(() => {
-          $("#mq5-scrollWatch").removeClass("animate__animated");
-          $("#mq5-scrollWatch").removeClass(animNameMq5);
-        }, 3000);
+        if (!isTerminatingMq5) {
+          isTerminatingMq5 = true;
+          setTimeout(() => {
+            $("#mq5-scrollWatch").removeClass("animate__animated");
+            $("#mq5-scrollWatch").removeClass(animNameMq5);
+            isTerminatingMq5 = false;
+          }, 1000);
+        }
       },
-      onElementOutOfView: function (e) {
-        $("#mq5-scrollWatch").removeClass("animate__animated");
-        $("#mq5-scrollWatch").removeClass(animNameMq5);
-      }
+      onElementOutOfView: function (e) {}
     }
   });
+  let isTerminatingDanhSach = false;
   const animNameDanhSach = "animate__fadeInRight";
   _setup_js_scrollWatch_2__WEBPACK_IMPORTED_MODULE_1__["default"].init({
     el: "#danhSach-scrollWatch",
@@ -560,15 +588,16 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
       onElementInView: function (e) {
         $("#danhSach-scrollWatch").addClass("animate__animated");
         $("#danhSach-scrollWatch").addClass(animNameDanhSach);
-        setTimeout(() => {
-          $("#danhSach-scrollWatch").removeClass("animate__animated");
-          $("#danhSach-scrollWatch").removeClass(animNameDanhSach);
-        }, 3000);
+        if (!isTerminatingDanhSach) {
+          isTerminatingDanhSach = true;
+          setTimeout(() => {
+            $("#danhSach-scrollWatch").removeClass("animate__animated");
+            $("#danhSach-scrollWatch").removeClass(animNameDanhSach);
+            isTerminatingDanhSach = false;
+          }, 1000);
+        }
       },
-      onElementOutOfView: function (e) {
-        $("#danhSach-scrollWatch").removeClass("animate__animated");
-        $("#danhSach-scrollWatch").removeClass(animNameDanhSach);
-      }
+      onElementOutOfView: function (e) {}
     }
   });
 });

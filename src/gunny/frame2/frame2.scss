@@ -67,7 +67,7 @@
 		align-items: flex-end;
 		position: absolute;
 		left: 50%;
-		top: 253px;
+		top: 193px;
 		translate: -50% 0;
 		z-index: 1;
 
@@ -79,6 +79,7 @@
 	}
 
 	.ranking-top {
+		--animate-duration: 1s;
 		background-image: url("./assets/images/ranking-frame.png");
 		background-size: 100% 100%;
 		position: relative;
