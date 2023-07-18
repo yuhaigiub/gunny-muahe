@@ -1020,7 +1020,7 @@
   font-size: 24px;
   color: rgb(155, 51, 0);
 }
-.gunny_frame3 .content-container .danh-sach #danhSach .swiper-slide:last-child {
+.gunny_frame3 .content-container .danh-sach #danhSach .text-container:last-child {
   border-bottom: 1px solid gray;
 }
 .gunny_frame3 .content-container .danh-sach #danhSach #danhSachScrollbar {
