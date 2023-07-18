@@ -41,7 +41,7 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
 		animBefore: function () {},
 		animWait: function () {},
 		wait: 0,
-		animResult: function (listPrize) {
+		animResult: function (listPrize, allowSpin) {
 			if (typeof LuckyDrawExchangeModule !== "undefined") {
 				LuckyDrawExchangeModule.fetchViewData();
 			}
@@ -107,6 +107,7 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
 					$("#popup-congrats").addClass("active");
 					items[order].addClass("active");
 					console.log(`ban da trung item ${$("#effect .effect__item").eq(order).attr("id")}`);
+					allowSpin();
 				}
 
 				// magic

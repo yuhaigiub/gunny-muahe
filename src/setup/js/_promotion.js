@@ -206,8 +206,12 @@ const dndPromotion = function (options) {
 										}
 									}
 
+									const allowSpin = () => {
+										settings.variable.spinable = true;
+									};
+
 									setTimeout(function () {
-										settings.animResult(listPrize);
+										settings.animResult(listPrize, allowSpin);
 										if ($(".pm__usedPoint").length > 0) {
 											var usedPoint = $(".pm__usedPoint").html();
 											usedPoint = parseInt(usedPoint);
@@ -216,8 +220,6 @@ const dndPromotion = function (options) {
 										}
 										settings.callback();
 									}, settings.wait);
-
-									settings.variable.spinable = true;
 									break;
 								default:
 									closeAllPopup();
@@ -280,7 +282,6 @@ const dndPromotion = function (options) {
 				success: function (response) {
 					// $("#anireward").removeClass("active");
 					closeAllPopup();
-					settings.variable.spinable = true;
 
 					if (response.status === 1) {
 						if (action === "get_data_multiple") {
@@ -389,4 +390,4 @@ const getAwardSrcById = function (code) {
 	return nameToSrc(getAwardID(code));
 };
 
-export { dndPromotion, getAwardSrcById };
+export {dndPromotion, getAwardSrcById};

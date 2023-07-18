@@ -461,7 +461,7 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
     animBefore: function () {},
     animWait: function () {},
     wait: 0,
-    animResult: function (listPrize) {
+    animResult: function (listPrize, allowSpin) {
       if (typeof LuckyDrawExchangeModule !== "undefined") {
         LuckyDrawExchangeModule.fetchViewData();
       }
@@ -517,6 +517,7 @@ $(document).on("gunny_frame3 rendered", {}, function (event, uniqueId) {
           $("#popup-congrats").addClass("active");
           items[order].addClass("active");
           console.log(`ban da trung item ${$("#effect .effect__item").eq(order).attr("id")}`);
+          allowSpin();
         }
 
         // magic
@@ -1223,8 +1224,11 @@ const dndPromotion = function (options) {
                       $(settings.el.rewardContainer).append(template2);
                     }
                   }
+                  const allowSpin = () => {
+                    settings.variable.spinable = true;
+                  };
                   setTimeout(function () {
-                    settings.animResult(listPrize);
+                    settings.animResult(listPrize, allowSpin);
                     if ($(".pm__usedPoint").length > 0) {
                       var usedPoint = $(".pm__usedPoint").html();
                       usedPoint = parseInt(usedPoint);
@@ -1233,7 +1237,6 @@ const dndPromotion = function (options) {
                     }
                     settings.callback();
                   }, settings.wait);
-                  settings.variable.spinable = true;
                   break;
                 default:
                   closeAllPopup();
@@ -1293,7 +1296,6 @@ const dndPromotion = function (options) {
         success: function (response) {
           // $("#anireward").removeClass("active");
           closeAllPopup();
-          settings.variable.spinable = true;
           if (response.status === 1) {
             if (action === "get_data_multiple") {
               handleData($this, test10.data);
