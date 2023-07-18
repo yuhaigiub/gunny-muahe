@@ -45,6 +45,10 @@
 		}
 	}
 
+	.bg-img {
+		object-fit: contain;
+	}
+
 	.gunny-logo {
 		@include image("sprite", $gunnylogo);
 		position: absolute;

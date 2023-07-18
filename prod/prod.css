@@ -34,6 +34,10 @@
     height: 967px;
   }
 }
+.gunny_frame1 .bg-img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .gunny_frame1 .gunny-logo {
   display: block;
   font-size: 0px;
@@ -343,6 +347,9 @@
   justify-content: center;
   align-items: center;
 }
+.gunny_frame2 {
+  margin-top: -1px;
+}
 @media (orientation:portrait) {
   .gunny_frame2,
   .gunny_frame2 .section__background,
@@ -356,7 +363,7 @@
   .gunny_frame2 .section__background,
   .gunny_frame2 .section__content,
   .gunny_frame2 .inner {
-    height: 1080px;
+    height: 1006px;
   }
 }
 .gunny_frame2 .title {
@@ -707,12 +714,15 @@
     margin-right: -90px;
   }
 }
+.gunny_frame3 {
+  margin-top: -1px;
+}
 @media (orientation:landscape) {
   .gunny_frame3,
   .gunny_frame3 .section__background,
   .gunny_frame3 .section__content,
   .gunny_frame3 .inner {
-    height: 1080px;
+    height: 994px;
   }
 }
 @media (orientation:portrait) {

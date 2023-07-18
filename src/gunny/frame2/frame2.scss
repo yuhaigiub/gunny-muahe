@@ -2,6 +2,8 @@
 @import "./sprites";
 
 .gunny_frame2 {
+	margin-top: -1px;
+	
 	@include grid-media($portrait) {
 		&,
 		.section__background,
@@ -16,7 +18,7 @@
 		.section__background,
 		.section__content,
 		.inner {
-			height: 1080px;
+			height: 1006px;
 		}
 	}
 

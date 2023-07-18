@@ -2,12 +2,13 @@
 @import "./sprites";
 
 .gunny_frame3 {
+	margin-top: -1px;
 	@include grid-media($landscape) {
 		&,
 		.section__background,
 		.section__content,
 		.inner {
-			height: 1080px;
+			height: 994px;
 		}
 	}
 
