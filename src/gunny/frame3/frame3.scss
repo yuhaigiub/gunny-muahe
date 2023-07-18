@@ -62,13 +62,19 @@
 				justify-content: space-evenly;
 				width: 100%;
 
-				button {
+				button,
+				a {
 					@include image("sprite", $blue-button);
+					font-family: roboto;
+					font-weight: 900;
 					background-color: transparent;
 					border: none;
 					font-size: 26px;
 					color: white;
 					cursor: pointer;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 					&:focus {
 						outline: none;
 					}
@@ -76,11 +82,13 @@
 			}
 
 			.text-container {
+				font-family: roboto;
+				font-weight: 500;
 				display: flex;
 				justify-content: space-between;
 
 				span {
-					font-weight: bold;
+					font-weight: 900;
 				}
 			}
 
@@ -144,6 +152,7 @@
 					flex-direction: column;
 					justify-content: center;
 					align-items: center;
+					font-family: svnBango;
 
 					button {
 						@include image("sprite", $red-button);
@@ -157,8 +166,7 @@
 						font-size: 25px !important;
 						border: none;
 						background-color: transparent;
-						color: rgb(225, 226, 108);
-						color: black;
+						color: rgb(255,226, 108);
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -187,8 +195,9 @@
 			}
 
 			.heading {
-				font-size: 32px;
-				color: red;
+				font-family: svnBango;
+				font-size: 30px;
+				color: rgb(121, 44, 12);
 			}
 
 			#danhSachSwiper {
@@ -198,21 +207,23 @@
 				padding-inline: 20px;
 
 				.swiper-slide {
+					font-family: roboto;
+					font-weight: 500;
 					border-top: 1px solid gray;
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
-
 					.text-top {
-						font-size: 20px;
+						font-size: 24px;
 						span {
-							font-weight: bold;
+							font-weight: 900;
 						}
 					}
 
 					.text-bottom {
-						font-size: 22px;
-						color: red;
+						font-weight: 900;
+						font-size: 24px;
+						color: rgb(155, 51, 0);
 					}
 				}
 				.swiper-slide:last-child {

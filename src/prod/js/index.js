@@ -4,7 +4,7 @@ import "../../setup/js/_scaleRoot.2";
 import "../../setup/js/_swiper";
 import "../../setup/js/_universalLink";
 import "../../setup/js/_scrollwatch";
-
+import scrollFrame from "../../setup/js/_scrollFrame.2";
 // import "lazysizes";
 // import "@fancyapps/fancybox";
 
@@ -28,6 +28,21 @@ window.addEventListener("load", function () {
 			console.log($(this));
 		},
 	});
+
+	// popup
+
+	$("[data-popup]").on("click", function (e) {
+		if (typeof $(this).attr("data-popup") === 'undefined' || $(this).attr("data-popup") === false) return;
+		$($(this).attr("href")).addClass("active");
+	});
+
+	$(".popup .close-btn").on("click", function (e) {
+		
+		const parents = $(this).parentsUntil(".outer");
+		parents.eq(parents.length - 1).removeClass("active");
+	});
+
+	scrollFrame.func.getFrames();
 });
 
 var commonLibs = function () {

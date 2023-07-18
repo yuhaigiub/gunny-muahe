@@ -18,15 +18,17 @@
 		padding-inline: 28px;
 		gap: 10px;
 		padding-top: 120px;
-		padding-inline: 0;
+		padding-inline: 5px;
 
 		li {
-			margin-bottom: 32px;
+			margin-bottom: 36px;
 		}
 
 		a {
+			font-family: svnBango;
+			font-weight: 300;
 			color: white;
-			font-size: 26px;
+			font-size: 22px;
 			display: flex;
 			justify-content: center;
 			&:hover {

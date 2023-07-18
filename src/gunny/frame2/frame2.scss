@@ -57,6 +57,7 @@
 	}
 
 	.ranking-top-container {
+		font-family: roboto;
 		width: 2000px;
 		display: flex;
 		gap: 124px;
@@ -255,6 +256,7 @@
 			}
 
 			.ranking-nor {
+				font-family: roboto;
 				background-image: url("./assets/images/ranking-frame-normal.png");
 				background-size: 100% 100%;
 				width: 231px;

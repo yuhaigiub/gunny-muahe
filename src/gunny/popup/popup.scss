@@ -2,6 +2,7 @@
 @import "./sprites";
 
 .popup {
+	font-family: roboto;
 	position: relative;
 	display: flex !important;
 	button {
@@ -15,8 +16,8 @@
 
 	.btn {
 		@include image("sprite", $green-button);
-		font-size: 26px;
-		color: yellow;
+		font-size: 29.15px;
+		color: rgb(255, 226, 108);
 		flex-shrink: 0;
 	}
 
@@ -30,6 +31,7 @@
 			position: absolute;
 			right: 40px;
 			top: 40px;
+			z-index: 9999;
 		}
 	}
 
@@ -49,6 +51,12 @@
 		.popup-container {
 			width: 789px;
 			height: 510px;
+
+			@include grid-media($portrait) {
+				width: 760px;
+				aspect-ratio: 789/510;
+				height: auto;
+			}
 		}
 
 		.text {
@@ -62,8 +70,15 @@
 		.popup-container {
 			width: 789px;
 			height: 510px;
+
+			@include grid-media($portrait) {
+				width: 760px;
+				aspect-ratio: 789/510;
+				height: auto;
+			}
 		}
 
+	
 		.center {
 			height: 300px;
 			justify-content: space-between;
@@ -73,9 +88,19 @@
 		.heading {
 			color: black;
 			font-size: 32px;
-			font-weight: 700;
+			font-weight: 900;
 			width: 700px;
 			text-align: center;
+		}
+
+		.prize-container[multiple] {
+			display: flex;
+			overflow-x: scroll;
+			width: 560px;
+			height: 200px;
+			gap: 20px;
+			flex-shrink: 0;
+			@include scrollBar(rgb(253, 188, 67), red);
 		}
 
 		.prize {
@@ -113,16 +138,33 @@
 			background-image: url("./assets/images/frame-content.png");
 			width: 1019px;
 			height: 685px;
+
+			@include grid-media($portrait) {
+				width: 760px;
+				aspect-ratio: 789/510;
+				height: auto;
+			}
 		}
 
 		.center {
 			width: 700px;
 			height: 450px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
 			overflow-y: scroll;
 			position: absolute;
 			top: 160px;
 			translate: -50% 0%;
-			@include scrollBar(rgb(255, 215, 140), red);
+			@include scrollBar(rgb(253, 188, 67), red);
+
+			
+			@include grid-media($portrait) {
+				width: 450px;
+				aspect-ratio: 700/450;
+				height: auto;
+				top: 120px
+			}
 		}
 	}
 
@@ -131,6 +173,12 @@
 			background-image: url("./assets/images/frame-signin.png");
 			width: 1023px;
 			height: 658px;
+
+			@include grid-media($portrait) {
+				width: 760px;
+				aspect-ratio: 789/510;
+				height: auto;
+			}
 		}
 
 		.center {
@@ -139,6 +187,10 @@
 			width: 700px;
 			height: 450px;
 			justify-content: space-evenly;
+
+			@include grid-media($portrait) {
+				top: 50px;
+			}
 		}
 
 		form {
@@ -159,12 +211,19 @@
 			.input {
 				flex-shrink: 0;
 				background-image: url("./assets/images/input.png");
+				background-size: 100% 100%;
 				width: 480px;
 				height: 55px;
 				background-color: transparent;
 				border: none;
 				color: white;
 				padding-inline: 20px;
+
+				@include grid-media($portrait) {
+					width: 380px;
+					height: auto;
+					aspect-ratio: 480/55;
+				}
 			}
 		}
 
@@ -187,6 +246,10 @@
 			a {
 				color: red;
 				text-decoration: underline;
+			}
+
+			@include grid-media($portrait) {
+				margin-top: -100px;
 			}
 		}
 	}

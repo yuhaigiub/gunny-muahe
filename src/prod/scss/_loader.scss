@@ -49,3 +49,28 @@
 	src: url("../assets/fonts/RefrigeratorDeluxe-Black.ttf");
 	font-weight: 900;
 }
+
+@font-face {
+	font-family: svnBango;
+	font-display: swap;
+	src: local("Barlow");
+	src: url("../assets/fonts/SVN-Bango.otf");
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: roboto;
+	font-display: swap;
+	src: local("Barlow");
+	src: url("../assets/fonts/Roboto-Black.ttf");
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: roboto;
+	font-display: swap;
+	src: local("Barlow");
+	src: url("../assets/fonts/Roboto-Medium.ttf");
+	font-weight: 500;
+}
+
