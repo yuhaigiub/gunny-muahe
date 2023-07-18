@@ -3,6 +3,7 @@
 
 .popup {
 	font-family: roboto;
+	font-weight: 500;
 	position: relative;
 	display: flex !important;
 	button {
@@ -78,7 +79,6 @@
 			}
 		}
 
-	
 		.center {
 			height: 300px;
 			justify-content: space-between;
@@ -147,23 +147,27 @@
 		}
 
 		.center {
-			width: 700px;
+			width: 745px;
 			height: 450px;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
-			overflow-y: scroll;
 			position: absolute;
 			top: 160px;
 			translate: -50% 0%;
-			@include scrollBar(rgb(253, 188, 67), red);
 
-			
 			@include grid-media($portrait) {
 				width: 450px;
 				aspect-ratio: 700/450;
 				height: auto;
-				top: 120px
+				top: 120px;
+			}
+
+			iframe {
+				width: 100% !important;
+				height: 100% !important;
+				position: relative;
+				z-index: 100;
 			}
 		}
 	}

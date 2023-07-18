@@ -1107,6 +1107,7 @@
 }
 .popup {
   font-family: roboto;
+  font-weight: 500;
   position: relative;
   display: flex !important;
 }
@@ -1305,36 +1306,14 @@
   }
 }
 .popup#popup-content .center {
-  width: 700px;
+  width: 745px;
   height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: scroll;
   position: absolute;
   top: 160px;
   translate: -50% 0%;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-}
-.popup#popup-content .center::-webkit-scrollbar {
-  margin-right: 6px;
-  width: 6px;
-  -webkit-transition: width 0.2s;
-  transition: width 0.2s;
-}
-.popup#popup-content .center:hover::-webkit-scrollbar {
-  width: 6px;
-}
-.popup#popup-content .center::-webkit-scrollbar-track {
-  background: rgba(253, 188, 67, 0.5);
-}
-.popup#popup-content .center::-webkit-scrollbar-thumb {
-  background: red;
-}
-.popup#popup-content .center::-webkit-scrollbar-thumb:hover {
-  background: red;
 }
 @media (orientation:portrait) {
   .popup#popup-content .center {
@@ -1343,6 +1322,12 @@
     height: auto;
     top: 120px;
   }
+}
+.popup#popup-content .center iframe {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  z-index: 100;
 }
 .popup#popup-signin .popup-container {
   background-image: url(../prod/gunny/popup/images/frame-signin.png);
